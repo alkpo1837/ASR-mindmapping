@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -25,22 +27,12 @@ import java.util.Random;
  * Created by HP on 14/12/2016.
  */
 
-class Position
-{
-    public double x, y;
-
-    public Position()
-    {
-
-    }
-}
-
 public class MapMindView extends RelativeLayout implements View.OnTouchListener
 {
     private HashMap<Button, File> periphButtons;
     private Button centralButton;
 
-    private Position[] periphButtonsPositions;
+    private Point[] periphButtonsPositions;
 
     private MainActivity m_mainActivity;
 
@@ -74,14 +66,20 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
 
-        periphButtonsPositions = new Position[16];
+        periphButtonsPositions = new Point[16];
 
         for (int i = 0; i < 16; i++)
-            periphButtonsPositions[i] = new Position();
+            periphButtonsPositions[i] = new Point();
 
         Log.d("init", "MapMindView init");
 
         setWillNotDraw(false);
+
+        /*Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;*/
     }
 
     public void setActivity(MainActivity mainActivity)
@@ -118,7 +116,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
                 button.setBackgroundColor(Color.MAGENTA);
             }
 
-            button.setText(childFile.getName());
+            button.setText(childFile.getName() + " " + n);
 
             button.setOnTouchListener(this);
 
@@ -253,34 +251,34 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
     {
         Log.d("generateButton", "On a " + periphButtonsPositions.length);
 
-        periphButtonsPositions[0].x = -500;//-centralButton.getX() * 1.5;
-        periphButtonsPositions[0].y = centralButton.getY() * 1.0;
+        periphButtonsPositions[0].x = -100;//-centralButton.getX() * 1.5;
+        periphButtonsPositions[0].y = (int) (centralButton.getY() * 1.0);
 
-        periphButtonsPositions[1].x = centralButton.getX() * 0.5;
-        periphButtonsPositions[1].y = centralButton.getY() * 1.0;
+        periphButtonsPositions[1].x = (int) (centralButton.getX() * 0.5);
+        periphButtonsPositions[1].y = (int) (centralButton.getY() * 1.0);
 
-        periphButtonsPositions[2].x = centralButton.getX() * 1.0;
-        periphButtonsPositions[2].y = centralButton.getY() * 0.5;
+        periphButtonsPositions[2].x = (int) (centralButton.getX() * 1.0);
+        periphButtonsPositions[2].y = (int) (centralButton.getY() * 0.5);
 
-        periphButtonsPositions[3].x = centralButton.getX() * 1.0;
-        periphButtonsPositions[3].y = centralButton.getY() * 1.5;
+        periphButtonsPositions[3].x = (int) (centralButton.getX() * 1.0);
+        periphButtonsPositions[3].y = (int) (centralButton.getY() * 1.5);
 
-        periphButtonsPositions[4].x = centralButton.getX() * 0.5;
-        periphButtonsPositions[4].y = centralButton.getY() * 0.5;
+        periphButtonsPositions[4].x = (int) (centralButton.getX() * 0.5);
+        periphButtonsPositions[4].y = (int) (centralButton.getY() * 0.5);
 
-        periphButtonsPositions[5].x = centralButton.getX() * 1.5;
-        periphButtonsPositions[5].y = centralButton.getY() * 0.5;
+        periphButtonsPositions[5].x = (int) (centralButton.getX() * 1.5);
+        periphButtonsPositions[5].y = (int) (centralButton.getY() * 0.5);
 
-        periphButtonsPositions[6].x = centralButton.getX() * 0.5;
-        periphButtonsPositions[6].y = centralButton.getY() * 1.5;
+        periphButtonsPositions[6].x = (int) (centralButton.getX() * 0.5);
+        periphButtonsPositions[6].y = (int) (centralButton.getY() * 1.5);
 
-        periphButtonsPositions[7].x = centralButton.getX() * 1.5;
-        periphButtonsPositions[7].y = centralButton.getY() * 1.5;
+        periphButtonsPositions[7].x = (int) (centralButton.getX() * 1.5);
+        periphButtonsPositions[7].y = (int) (centralButton.getY() * 1.5);
 
-        periphButtonsPositions[8].x = centralButton.getX() * 1.5;
-        periphButtonsPositions[8].y = centralButton.getY() * 1.0;
+        periphButtonsPositions[8].x = (int) (centralButton.getX() * 1.5);
+        periphButtonsPositions[8].y = (int) (centralButton.getY() * 1.0);
 
-        periphButtonsPositions[9].x = centralButton.getX() * 1.5;
+        /*periphButtonsPositions[9].x = centralButton.getX() * 1.5;
         periphButtonsPositions[9].y = centralButton.getY() * 1.0;
 
         periphButtonsPositions[10].x = centralButton.getX() * 1.5;
@@ -299,7 +297,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
         periphButtonsPositions[14].y = centralButton.getY() * 1.0;
 
         periphButtonsPositions[15].x = centralButton.getX() * 1.5;
-        periphButtonsPositions[15].y = centralButton.getY() * 1.0;
+        periphButtonsPositions[15].y = centralButton.getY() * 1.0;*/
 
     }
 

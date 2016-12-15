@@ -42,6 +42,9 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
     private float dxView, dYView;
     private boolean onLongClick;
 
+    private int screenWidth, screenHeigth;
+    private int leftMargin, topMargin;
+
     Paint paint = new Paint();
 
 
@@ -57,9 +60,11 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
         super(context, attrs, defStyleAttr);
     }
 
-    public void init()
+    public void init(MainActivity mainActivity)
     {
         periphButtons = new HashMap<Button, File>();
+
+        this.m_mainActivity = mainActivity;
 
         inflate(getContext(), R.layout.map_mind_view, this);
 
@@ -67,6 +72,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setStrokeWidth(2.0f);
 
         periphButtonsPositions = new Point[16];
 
@@ -81,24 +87,19 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
         Point size = new Point();
         display.getSize(size);
 
-        int width = size.x;
-        int height = size.y;
+        screenWidth = size.x;
+        screenHeigth = size.y;
 
-        Log.d("init", width + " et " + height);
+        Log.d("init", screenWidth + " et " + screenHeigth);
 
         // LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(5000, ViewGroup.LayoutParams.MATCH_PARENT);\
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) this.getLayoutParams();
-        params.setMargins(-1220, 0, 0, 0);
+
+        leftMargin = (params.width - screenWidth) / 2;
+        topMargin = (params.height - screenHeigth) / 2;
+
+        params.setMargins(-leftMargin, -topMargin, 0, 0);
         this.setLayoutParams(params);
-
-        /*this.setLeft(-2000);
-        -(5000 - width) / 2*/
-        // this.setLayoutParams(params);
-    }
-
-    public void setActivity(MainActivity mainActivity)
-    {
-        m_mainActivity = mainActivity;
     }
 
     // Eb fonction du nombres du children, construire un tableau de positions
@@ -123,7 +124,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
         {
             Button button = new Button(getContext());
 
-            button.setTextSize(20.f);
+            button.setTextSize(30.0f);
 
             if (childFile.isDirectory())
             {
@@ -138,14 +139,14 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 
-            if (nbrChildrens < 16)
+            //if (nbrChildrens < 16)
             {
                 params.leftMargin = getXPeriphButtonPosition(n);
                 params.topMargin = getYPeriphButtonPosition(n);
 
                 Log.d("margins", n + " avec " + params.leftMargin + " et " + params.topMargin);
             }
-            else
+            /*else
             {
                 params.leftMargin = n * 350;
                 params.topMargin = y;
@@ -155,13 +156,16 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
                     n = 1;
                     y += 200;
                 }
-            }
+            }*/
 
             button.setLayoutParams(params);
 
             n++;
 
             this.addView(button);
+
+            if (n == 8)
+                break;
         }
     }
 
@@ -202,6 +206,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
     @Override
     public boolean onTouch(View view, MotionEvent event)
     {
+        Log.d("On touch", "G touche mapmindview");
         switch (event.getActionMasked())
         {
             case MotionEvent.ACTION_DOWN:
@@ -213,6 +218,8 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
                 view.setY(event.getRawY() + dY);
                 view.setX(event.getRawX() + dX);
 
+                m_mainActivity.notifyMoveButton((Button) view);
+
                 invalidate();
 
                 onLongClick = true;
@@ -221,9 +228,9 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
             case MotionEvent.ACTION_UP:
                 if (!onLongClick)
                 {
-                    File f = periphButtons.get((Button) view);
+                    Button buttonClicked = (Button) view;
 
-                    m_mainActivity.notifyClickOnButton(f);
+                    m_mainActivity.notifyClickOnButton(buttonClicked, periphButtons.get(buttonClicked));
                 }
 
                 onLongClick = false;
@@ -263,20 +270,28 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
     public void generateButtonsPositions()
     {
+        float xFactors[] = {-0.25f, 0.25f, 0.0f, 0.0f};
+        float yFactors[] = {0.0f, 0.0f, -0.25f, 0.25f};
         Log.d("generateButton", "On a " + periphButtonsPositions.length);
 
-        periphButtonsPositions[0].x = -100;//-centralButton.getX() * 1.5;
-        periphButtonsPositions[0].y = (int) (centralButton.getY() * 1.0);
+        for (int i = 0; i < 4; i++)
+        {
+            periphButtonsPositions[i].x = (int) (centralButton.getX() + screenWidth * xFactors[i]);
+            periphButtonsPositions[i].y = (int) (centralButton.getY() + screenHeigth * yFactors[i]);
+        }
 
-        periphButtonsPositions[1].x = (int) (centralButton.getX() * 0.5);
-        periphButtonsPositions[1].y = (int) (centralButton.getY() * 1.0);
+       /* periphButtonsPositions[0].x = (int) centralButton.getX() - screenWidth * 1 / 2;//-leftMargin  + 100;//-centralButton.getX() * 1.5;
+        periphButtonsPositions[0].y = (int) centralButton.getY();
+
+        periphButtonsPositions[1].x = (int) centralButton.getX() + screenWidth * 1 / 4;
+        periphButtonsPositions[1].y = (int) centralButton.getY();
 
         periphButtonsPositions[2].x = (int) (centralButton.getX() * 1.0);
         periphButtonsPositions[2].y = (int) (centralButton.getY() * 0.5);
 
         periphButtonsPositions[3].x = (int) (centralButton.getX() * 1.0);
         periphButtonsPositions[3].y = (int) (centralButton.getY() * 1.5);
-
+*/
         periphButtonsPositions[4].x = (int) (centralButton.getX() * 0.5);
         periphButtonsPositions[4].y = (int) (centralButton.getY() * 0.5);
 

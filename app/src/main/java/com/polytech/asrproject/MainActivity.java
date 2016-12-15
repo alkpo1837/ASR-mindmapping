@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,11 +18,10 @@ public class MainActivity extends AppCompatActivity
 {
     // MindMapView
     private MapMindView m_mapMindView;
-
-    private Button m_buttonInit;
-    private Button m_previousButton;
+    private ActionsOnButtonView m_actionsOnButtonView = null;
 
     private Model m_Model;
+    private File m_clickedFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,65 +32,98 @@ public class MainActivity extends AppCompatActivity
         m_Model = new Model();
 
         m_mapMindView = (MapMindView) findViewById(R.id.mapMindView);
-        m_buttonInit = (Button) findViewById(R.id.initButton);
-        m_previousButton = (Button) findViewById(R.id.previousButton);
 
-        m_mapMindView.init();
-        m_mapMindView.setActivity(this);
+        m_mapMindView.init(this);
 
+        m_actionsOnButtonView = new ActionsOnButtonView(this.getApplicationContext());
 
+        m_actionsOnButtonView.init(this);
+        m_mapMindView.addView(m_actionsOnButtonView);
 
+        m_actionsOnButtonView.setVisibility(View.INVISIBLE);
 
-        m_buttonInit.setOnClickListener(new View.OnClickListener()
+    }
+
+    public void notifyClickOnButton(Button buttonClicked, File file)
+    {
+        Log.d("activity notify", "Button name = " + file.getName());
+        m_clickedFile = file;
+
+        m_actionsOnButtonView.setX(buttonClicked.getX() - 150);
+        m_actionsOnButtonView.setY(buttonClicked.getY() - 150);
+
+        m_actionsOnButtonView.setVisibility(View.VISIBLE);
+
+    }
+
+    public void notifyMoveButton(Button buttonMoved)
+    {
+        if (m_actionsOnButtonView != null)
         {
-            @Override
-            public void onClick(View view)
-            {
+            m_actionsOnButtonView.setX(buttonMoved.getX() - 150);
+            m_actionsOnButtonView.setY(buttonMoved.getY() - 150);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);//Menu Resource, Menu
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.initItem:
                 m_mapMindView.constructFromFile(m_Model.getCurrentFile());
-                m_buttonInit.setEnabled(false);
-            }
-        });
-
-        m_previousButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
+                //m_buttonInit.setEnabled(false);
+                return true;
+            case R.id.previousItem:
                 m_Model.goToParentDirectory();
 
                 m_mapMindView.constructFromFile(m_Model.getCurrentFile());
 
                 if (!m_Model.hasParentDirectory())
                 {
-                    m_previousButton.setEnabled(false);
+                    //m_previousButton.setEnabled(false);
                 }
-            }
-        });
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
-    public void notifyClickOnButton(File file)
+
+
+    public void closeActionsOnButtonView()
     {
-        Log.d("activity notify", "Button name = " + file.getName());
+        m_actionsOnButtonView.setVisibility(View.INVISIBLE);
+    }
 
-        if (file.isDirectory())
+    public void openDirectoryOrFile()
+    {
+        closeActionsOnButtonView();
+
+        if (m_clickedFile.isDirectory())
         {
-            if (!m_Model.hasParentDirectory())
-            {
-                m_previousButton.setEnabled(true);
-            }
+            m_Model.setCurrentFile(m_clickedFile);
+            m_mapMindView.constructFromFile(m_clickedFile);
 
-            m_Model.setCurrentFile(file);
-            m_mapMindView.constructFromFile(file);
+            m_clickedFile = null;
         }
         /*else
         {
             clickOnFile(f);
         }*/
-
-
     }
+}
 
-    /*
+
+
+
+/*
         public void clickOnFile(File file)
         {
             MimeTypeMap myMime = MimeTypeMap.getSingleton();
@@ -129,4 +163,3 @@ public class MainActivity extends AppCompatActivity
             }
         }
         */
-}

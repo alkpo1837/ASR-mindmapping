@@ -14,8 +14,10 @@ import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -75,11 +77,23 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
         setWillNotDraw(false);
 
-        /*Display display = getWindowManager().getDefaultDisplay();
+        Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
+
         int width = size.x;
-        int height = size.y;*/
+        int height = size.y;
+
+        Log.d("init", width + " et " + height);
+
+        // LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(5000, ViewGroup.LayoutParams.MATCH_PARENT);\
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) this.getLayoutParams();
+        params.setMargins(-1220, 0, 0, 0);
+        this.setLayoutParams(params);
+
+        /*this.setLeft(-2000);
+        -(5000 - width) / 2*/
+        // this.setLayoutParams(params);
     }
 
     public void setActivity(MainActivity mainActivity)

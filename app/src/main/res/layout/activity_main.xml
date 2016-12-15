@@ -8,7 +8,6 @@
 
     <com.polytech.asrproject.MapMindView
         android:id="@+id/mapMindView"
-        android:layout_marginLeft="-1220px"
         android:layout_width="5000px"
         android:layout_height="match_parent"
         android:layout_weight="0.10"/>

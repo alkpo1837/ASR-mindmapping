@@ -1,10 +1,14 @@
 package com.polytech.asrproject;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.io.File;
 
@@ -32,6 +36,9 @@ public class MainActivity extends AppCompatActivity
 
         m_mapMindView.init();
         m_mapMindView.setActivity(this);
+
+
+
 
         m_buttonInit.setOnClickListener(new View.OnClickListener()
         {

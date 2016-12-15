@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_93e19e5a07c7db16521e33d528df1bb905c41bdc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_723aca607929215f34b2497ba010eb3fdbc8a632\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="86812effb74f915312d6e555bbb8451ba2bbfbfc">
+        <dex dex="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_a810b08bd8c037b96dec78b3569d0b80c9a39a24\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_1f95562d47bee2e1999d2c523eee7f77d691ee34\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_e39fba9c40a69c0412b995e62fe29b8d81a90fbf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="54bb377f7a7a026d7429b6df65866ef386f2509c">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_efe9266797a8ff56243a0e2928f41b8f2b67055b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_eb9e97655515df7ff4cf87cbfd9af86910cbc156\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_861b1b6ff25618bac70c58f7cd5990bb741e4fcc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_2457e5fe8e4d3e360dbcf0c4deccc9c9fa496a7d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fc01a446290195c2b5a93195bcd2570a46ac3978">
+        <dex dex="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_143ff556d4f33f0d0651f778fabf16076cd64ffa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_fb2e399325bbaecdd4e6e00611dcd7bcd4396d87\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\HP\AndroidStudioProjects\ASRProject\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_6345d8412bcc0b957f18d1d85a4efc931b391127\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_be07dcb85f9497c4b31259db7365ff14f9b0d43e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_af3c86afa399f49560421c100a3720d053320d9b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="161c615d1b01123f4ed07b64ef0eba0365f0bc29">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_204436c9871f35e3e5318bc3441896bcc944db11\classes.dex" />
+    </item>
+
+</items>

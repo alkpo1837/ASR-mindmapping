@@ -8,8 +8,8 @@
 
     <com.polytech.asrproject.MapMindView
         android:id="@+id/mapMindView"
-        android:layout_width="10000px"
-        android:layout_height="10000px"
+        android:layout_width="5000px"
+        android:layout_height="5000px"
         android:background="#0f0ff0" />
 
 </LinearLayout>

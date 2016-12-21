@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="91e6787ebd2a0899e2594c471ef95285e17d6be3">
+        sha1="c344dcb5c9157cb47bef940267ce3f9adcfcbeef">
         <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_efe9266797a8ff56243a0e2928f41b8f2b67055b\classes.dex" />
     </item>
     <item
@@ -133,7 +133,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="73a5cc4f95e5e5046b0213d98aad8ea762ea91df">
+        sha1="0f1fb8134d45c74f08cb303e2dc9cb45312d0ceb">
         <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_204436c9871f35e3e5318bc3441896bcc944db11\classes.dex" />
     </item>
 

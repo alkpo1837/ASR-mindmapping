@@ -4,4 +4,7 @@
         android:title="Init" />
     <item android:id="@+id/previousItem"
         android:title="Previous" />
+    <item android:id="@+id/centerItem"
+        android:title="Center" />
+
 </menu>

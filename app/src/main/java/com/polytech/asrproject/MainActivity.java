@@ -90,6 +90,11 @@ public class MainActivity extends AppCompatActivity
                     //m_previousButton.setEnabled(false);
                 }
                 return true;
+            case R.id.centerItem:
+                m_mapMindView.centerView();
+
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

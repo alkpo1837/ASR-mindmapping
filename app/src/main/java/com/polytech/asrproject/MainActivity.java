@@ -1,6 +1,7 @@
 package com.polytech.asrproject;
 
 import android.graphics.Color;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,10 +39,10 @@ public class MainActivity extends AppCompatActivity
         m_actionsOnButtonView = new ActionsOnButtonView(this.getApplicationContext());
 
         m_actionsOnButtonView.init(this);
+        // In front of everything
+        ViewCompat.setTranslationZ(m_actionsOnButtonView, 15.0f);
+
         m_mapMindView.addView(m_actionsOnButtonView);
-
-        m_actionsOnButtonView.setVisibility(View.INVISIBLE);
-
     }
 
     public void notifyClickOnButton(Button buttonClicked, File file)
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity
         m_actionsOnButtonView.setY(buttonClicked.getY() - 150);
 
         m_actionsOnButtonView.setVisibility(View.VISIBLE);
+
+
 
     }
 

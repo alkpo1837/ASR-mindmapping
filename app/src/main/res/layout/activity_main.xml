@@ -10,6 +10,6 @@
         android:id="@+id/mapMindView"
         android:layout_width="5000px"
         android:layout_height="5000px"
-        android:background="#0f0ff0" />
+        android:background="#c9e3ff" />
 
 </LinearLayout>

@@ -62,5 +62,7 @@ public class ActionsOnButtonView extends LinearLayout
                 m_mainActivity.openDirectoryOrFile();
             }
         });
+
+        setVisibility(INVISIBLE);
     }
 }

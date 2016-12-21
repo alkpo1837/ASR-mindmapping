@@ -9,9 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Central"
+        android:paddingLeft="15px"
+        android:paddingRight="15px"
+        android:paddingBottom="15px"
+        android:paddingTop="15px"
+
         android:layout_centerInParent="true"
         android:textSize="30dp"
-        android:background="#a000ff"
+        android:background="@drawable/central_button"
         />
 
 </RelativeLayout>

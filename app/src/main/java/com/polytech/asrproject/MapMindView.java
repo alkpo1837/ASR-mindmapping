@@ -31,7 +31,7 @@ import java.util.Random;
 
 public class MapMindView extends RelativeLayout implements View.OnTouchListener
 {
-    private HashMap<Button, File> periphButtons;
+    private HashMap<DirectoryOrFileButton, File> periphButtons;
     private Button centralButton;
 
     private Point[] periphButtonsPositions;
@@ -62,7 +62,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
     public void init(MainActivity mainActivity)
     {
-        periphButtons = new HashMap<Button, File>();
+        periphButtons = new HashMap<DirectoryOrFileButton, File>();
 
         this.m_mainActivity = mainActivity;
 
@@ -72,7 +72,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setStrokeWidth(2.0f);
+        paint.setStrokeWidth(4.0f);
 
         periphButtonsPositions = new Point[16];
 
@@ -81,6 +81,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
         Log.d("init", "MapMindView init");
 
+        // Used to draw lines
         setWillNotDraw(false);
 
         Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
@@ -92,7 +93,6 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
         Log.d("init", screenWidth + " et " + screenHeigth);
 
-        // LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(5000, ViewGroup.LayoutParams.MATCH_PARENT);\
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) this.getLayoutParams();
 
         viewHeigth = params.height;
@@ -123,16 +123,9 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
         for (File childFile : file.listFiles())
         {
-            Button button = new Button(getContext());
+            DirectoryOrFileButton button = new DirectoryOrFileButton(getContext());
 
-            button.setTextSize(30.0f);
-
-            if (childFile.isDirectory())
-            {
-                button.setBackgroundColor(Color.MAGENTA);
-            }
-
-            button.setText(childFile.getName() + " " + n);
+            button.init(childFile);
 
             button.setOnTouchListener(this);
 
@@ -274,8 +267,8 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
     public void generateButtonsPositions()
     {
-        float xFactors[] = {-0.25f, 0.25f, 0.0f, 0.0f, -0.25f, 0.25f, -0.25f, 0.25f, 0.5f};
-        float yFactors[] = {0.0f, 0.0f, -0.25f, 0.25f, -0.25f, -0.25f, 0.25f, 0.25f, 0.0f};
+        float xFactors[] = {-0.25f, 0.25f, 0.0f, 0.0f, -0.25f, 0.25f, -0.25f, 0.25f, 0.33f};
+        float yFactors[] = {0.0f, 0.0f, -0.25f, 0.25f, -0.25f, -0.25f, 0.25f, 0.25f, 0.125f};
 
         for (int i = 0; i < 9; i++)
         {
@@ -307,8 +300,6 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
         periphButtonsPositions[7].x = (int) (centralButton.getX() * 1.5);
         periphButtonsPositions[7].y = (int) (centralButton.getY() * 1.5);
 */
-        periphButtonsPositions[8].x = (int) (centralButton.getX() * 1.5);
-        periphButtonsPositions[8].y = (int) (centralButton.getY() * 1.0);
 
         /*periphButtonsPositions[9].x = centralButton.getX() * 1.5;
         periphButtonsPositions[9].y = centralButton.getY() * 1.0;

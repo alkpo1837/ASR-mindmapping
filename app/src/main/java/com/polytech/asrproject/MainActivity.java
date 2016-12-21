@@ -1,19 +1,30 @@
 package com.polytech.asrproject;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.os.Debug;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.io.File;
+
+import static android.view.inputmethod.InputMethodManager.SHOW_FORCED;
+import static android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -22,7 +33,11 @@ public class MainActivity extends AppCompatActivity
     private ActionsOnButtonView m_actionsOnButtonView = null;
 
     private Model m_Model;
+
+    private Button m_clickedButton;
     private File m_clickedFile;
+
+    private EditText m_editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,12 +47,42 @@ public class MainActivity extends AppCompatActivity
 
         m_Model = new Model();
 
-        m_mapMindView = (MapMindView) findViewById(R.id.mapMindView);
+        m_editText = (EditText) findViewById(R.id.editText);
 
+        m_editText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
+            {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2)
+            {
+                Log.d("CHANGEONS LE TEXTE ", m_editText.getText().toString()); //Here you will get what you want
+
+                if (m_clickedButton != null)
+                {
+                    m_clickedButton.setText(charSequence);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+
+            }
+
+        });
+
+        m_editText.setVisibility(View.INVISIBLE);
+
+        m_mapMindView = (MapMindView) findViewById(R.id.mapMindView);
         m_mapMindView.init(this);
 
         m_actionsOnButtonView = new ActionsOnButtonView(this.getApplicationContext());
-
         m_actionsOnButtonView.init(this);
         // In front of everything
         ViewCompat.setTranslationZ(m_actionsOnButtonView, 15.0f);
@@ -49,6 +94,7 @@ public class MainActivity extends AppCompatActivity
     {
         Log.d("activity notify", "Button name = " + file.getName());
         m_clickedFile = file;
+        m_clickedButton = buttonClicked;
 
         m_actionsOnButtonView.setX(buttonClicked.getX() - 150);
         m_actionsOnButtonView.setY(buttonClicked.getY() - 150);
@@ -125,6 +171,32 @@ public class MainActivity extends AppCompatActivity
         {
             clickOnFile(f);
         }*/
+    }
+
+    public void renameFile()
+    {
+        //EditText m_editText = (EditText) findViewById(R.id.editText);
+
+        Log.d("renameFile", "Lets rename the file");
+
+        m_editText.setVisibility(View.VISIBLE);
+        m_editText.setFocusableInTouchMode(true);
+
+        if (m_editText.requestFocus())
+        {
+            InputMethodManager imm = (InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            boolean shown = imm.showSoftInput(m_editText, InputMethodManager.SHOW_IMPLICIT);
+
+            Log.d("Shown", "= " + shown);
+        }
+        else
+        {
+            Log.d("Focus", "Cant focus");
+        }
+
+
     }
 }
 

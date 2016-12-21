@@ -12,4 +12,12 @@
         android:layout_height="5000px"
         android:background="#c9e3ff" />
 
+    <EditText
+        android:id="@+id/editText"
+        android:visibility="invisible"
+        android:imeOptions="actionDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
 </LinearLayout>

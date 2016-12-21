@@ -20,8 +20,7 @@ public class ActionsOnButtonView extends LinearLayout
 {
     private MainActivity m_mainActivity;
 
-    private Button m_quitButton;
-    private Button m_openFileButton;
+    private Button  m_openFileButton, m_renameFileButton, m_deleteFileButton, m_quitButton;
 
     public ActionsOnButtonView(Context context)
     {
@@ -46,6 +45,8 @@ public class ActionsOnButtonView extends LinearLayout
 
         m_quitButton = (Button) findViewById(R.id.closeViewButton);
         m_openFileButton = (Button) findViewById(R.id.openButton);
+        m_renameFileButton = (Button) findViewById(R.id.renameButton);
+        m_deleteFileButton = (Button) findViewById(R.id.deleteButton);
 
         m_quitButton.setOnClickListener(new OnClickListener()
         {
@@ -60,6 +61,13 @@ public class ActionsOnButtonView extends LinearLayout
             @Override
             public void onClick(View view) {
                 m_mainActivity.openDirectoryOrFile();
+            }
+        });
+
+        m_renameFileButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                m_mainActivity.renameFile();
             }
         });
 

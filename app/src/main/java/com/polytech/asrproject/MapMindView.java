@@ -195,7 +195,6 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
     @Override
     public boolean onTouch(View view, MotionEvent event)
     {
-        Log.d("On touch", "G touche mapmindview");
         switch (event.getActionMasked())
         {
             case MotionEvent.ACTION_DOWN:
@@ -255,6 +254,7 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
         periphButtons.clear();
     }
+
 
     public void centerView()
     {

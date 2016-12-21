@@ -4,10 +4,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:background="#ff0000">
+    >
 
     <Button
         android:text="Open"
+        android:textSize="40px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/openButton"
@@ -15,13 +16,17 @@
 
     <Button
         android:text="Rename"
+        android:textSize="40px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/renameButton"
          />
 
+
+
     <Button
         android:text="Delete"
+        android:textSize="40px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/deleteButton"
@@ -29,6 +34,7 @@
 
     <Button
         android:text="X"
+        android:textSize="40px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/closeViewButton"

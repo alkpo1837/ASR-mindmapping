@@ -105,6 +105,8 @@ public class MainActivity extends AppCompatActivity
         m_actionsOnButtonView.setVisibility(View.VISIBLE);
 
 
+        m_actionsOnButtonView.canDelete(!file.isDirectory());
+
 
     }
 
@@ -178,10 +180,6 @@ public class MainActivity extends AppCompatActivity
 
     public void renameFile()
     {
-        //EditText m_editText = (EditText) findViewById(R.id.editText);
-
-        Log.d("renameFile", "Lets rename the file");
-
         m_editText.setVisibility(View.VISIBLE);
         m_editText.setFocusableInTouchMode(true);
 
@@ -191,31 +189,38 @@ public class MainActivity extends AppCompatActivity
                     getSystemService(Context.INPUT_METHOD_SERVICE);
 
             boolean shown = imm.showSoftInput(m_editText, InputMethodManager.SHOW_IMPLICIT);
-
-            Log.d("Shown", "= " + shown);
         }
         else
         {
             Log.d("Focus", "Cant focus");
         }
+    }
+
+    public void deleteFile()
+    {
+        m_mapMindView.destroyButton(m_clickedButton);
+
+        m_actionsOnButtonView.setVisibility(View.INVISIBLE);
+
+        // Delete the file here
 
 
     }
 
     public void hideKeyboard()
     {
-        Log.d("YO", "ONBACKPRESSED");
-        if (m_editText.getVisibility() == View.VISIBLE) {
-            Log.d("ON PASSE ICI", "et comme il faut");
-
+        if (m_editText.getVisibility() == View.VISIBLE)
+        {
             // hide virtual keyboard
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(m_editText.getWindowToken(),
                     InputMethodManager.RESULT_UNCHANGED_SHOWN);
 
+            // Rename file or directory here
 
             m_editText.setVisibility(View.INVISIBLE);
 
+            m_actionsOnButtonView.setVisibility(View.INVISIBLE);
 
         }
         else

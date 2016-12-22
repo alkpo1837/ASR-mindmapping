@@ -71,6 +71,20 @@ public class ActionsOnButtonView extends LinearLayout
             }
         });
 
+        m_deleteFileButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                m_mainActivity.deleteFile();
+            }
+        });
+
         setVisibility(INVISIBLE);
+    }
+
+    public void canDelete(boolean canDelete)
+    {
+        Log.d("canDelete", "val = " + canDelete);
+        m_deleteFileButton.setEnabled(canDelete);
     }
 }

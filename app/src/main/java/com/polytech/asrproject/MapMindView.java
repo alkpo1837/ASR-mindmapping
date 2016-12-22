@@ -98,7 +98,8 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
         viewHeigth = params.height;
         viewWidth = params.width;
 
-        params.setMargins(-(params.width - screenWidth) / 2, -(params.height - screenHeigth) / 2, 0, 0);
+        // -150 due to the editText
+        params.setMargins(-(params.width - screenWidth) / 2, -(params.height - screenHeigth) / 2 - 150 , 0, 0);
 
         this.setLayoutParams(params);
     }
@@ -262,6 +263,13 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
 
         this.setX(-(params.width - screenWidth) / 2);
         this.setY(-(params.height - screenHeigth) / 2);
+    }
+
+    public void destroyButton(Button button)
+    {
+        periphButtons.remove(button);
+
+        this.removeView(button);
     }
 
 

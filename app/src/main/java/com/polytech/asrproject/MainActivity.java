@@ -15,11 +15,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.io.File;
 
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity
     private Button m_clickedButton;
     private File m_clickedFile;
 
-    private EditText m_editText;
+    private CustomEditText m_editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,7 +49,8 @@ public class MainActivity extends AppCompatActivity
 
         m_Model = new Model();
 
-        m_editText = (EditText) findViewById(R.id.editText);
+        m_editText = (CustomEditText) findViewById(R.id.edit_text);
+        m_editText.init(this);
 
         m_editText.addTextChangedListener(new TextWatcher() {
 
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity
 
         });
 
-        m_editText.setVisibility(View.INVISIBLE);
+
 
         m_mapMindView = (MapMindView) findViewById(R.id.mapMindView);
         m_mapMindView.init(this);
@@ -198,6 +201,31 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+    public void hideKeyboard()
+    {
+        Log.d("YO", "ONBACKPRESSED");
+        if (m_editText.getVisibility() == View.VISIBLE) {
+            Log.d("ON PASSE ICI", "et comme il faut");
+
+            // hide virtual keyboard
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(m_editText.getWindowToken(),
+                    InputMethodManager.RESULT_UNCHANGED_SHOWN);
+
+
+            m_editText.setVisibility(View.INVISIBLE);
+
+
+        }
+        else
+        {
+            super.onBackPressed();
+        }
+
+
+    }
+
 }
 
 

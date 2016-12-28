@@ -30,7 +30,15 @@ public class DirectoryOrFileButton extends Button
     public void init(File file)
     {
         this.setText(file.getName());
-        this.setTextSize(25.0f);
+
+        if (file.getName().length() > 12)
+        {
+            this.setTextSize(20.0f);
+        }
+        else
+        {
+            this.setTextSize(25.0f);
+        }
 
         this.setPadding(10, 10, 10, 10);
 

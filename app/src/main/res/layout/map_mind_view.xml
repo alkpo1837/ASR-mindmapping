@@ -13,10 +13,18 @@
         android:paddingRight="15px"
         android:paddingBottom="15px"
         android:paddingTop="15px"
-
         android:layout_centerInParent="true"
-        android:textSize="30dp"
+        android:textSize="35px"
         android:background="@drawable/central_button"
         />
+
+    <com.polytech.asrproject.ActionsOnButtonView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/actions_on_button_view"
+        >
+
+    </com.polytech.asrproject.ActionsOnButtonView>
+
 
 </RelativeLayout>

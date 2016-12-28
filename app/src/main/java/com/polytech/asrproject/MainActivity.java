@@ -1,8 +1,12 @@
 package com.polytech.asrproject;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Debug;
+import android.os.Handler;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,11 +21,13 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -32,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 {
     // MindMapView
     private MapMindView m_mapMindView;
-    private ActionsOnButtonView m_actionsOnButtonView = null;
+    private ActionsOnButtonView m_actionsOnButtonView;
 
     private Model m_Model;
 
@@ -85,12 +91,16 @@ public class MainActivity extends AppCompatActivity
         m_mapMindView = (MapMindView) findViewById(R.id.mapMindView);
         m_mapMindView.init(this);
 
-        m_actionsOnButtonView = new ActionsOnButtonView(this.getApplicationContext());
+        m_actionsOnButtonView = (ActionsOnButtonView) findViewById(R.id.actions_on_button_view);
         m_actionsOnButtonView.init(this);
-        // In front of everything
-        ViewCompat.setTranslationZ(m_actionsOnButtonView, 15.0f);
 
-        m_mapMindView.addView(m_actionsOnButtonView);
+        // We have to wait a little bit, otherwise the view doesn't know its size or whatever
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                m_mapMindView.constructFromFile(m_Model.getCurrentFile());
+            }
+        }, 200);
     }
 
     public void notifyClickOnButton(Button buttonClicked, File file)
@@ -105,6 +115,7 @@ public class MainActivity extends AppCompatActivity
         m_actionsOnButtonView.setVisibility(View.VISIBLE);
 
 
+
         m_actionsOnButtonView.canDelete(!file.isDirectory());
 
 
@@ -114,8 +125,14 @@ public class MainActivity extends AppCompatActivity
     {
         if (m_actionsOnButtonView != null)
         {
+
             m_actionsOnButtonView.setX(buttonMoved.getX() - 150);
             m_actionsOnButtonView.setY(buttonMoved.getY() - 150);
+
+            /*m_mapMindView.bringChildToFront(m_actionsOnButtonView);
+            m_mapMindView.setAllButtonChildsToBack();
+            m_mapMindView.invalidate();
+            */
         }
     }
 
@@ -130,20 +147,6 @@ public class MainActivity extends AppCompatActivity
     {
         switch (item.getItemId())
         {
-            case R.id.initItem:
-                m_mapMindView.constructFromFile(m_Model.getCurrentFile());
-                //m_buttonInit.setEnabled(false);
-                return true;
-            case R.id.previousItem:
-                m_Model.goToParentDirectory();
-
-                m_mapMindView.constructFromFile(m_Model.getCurrentFile());
-
-                if (!m_Model.hasParentDirectory())
-                {
-                    //m_previousButton.setEnabled(false);
-                }
-                return true;
             case R.id.centerItem:
                 m_mapMindView.centerView();
 
@@ -172,10 +175,10 @@ public class MainActivity extends AppCompatActivity
 
             m_clickedFile = null;
         }
-        /*else
+        else
         {
-            clickOnFile(f);
-        }*/
+            clickOnFile(m_clickedFile);
+        }
     }
 
     public void renameFile()
@@ -223,12 +226,41 @@ public class MainActivity extends AppCompatActivity
             m_actionsOnButtonView.setVisibility(View.INVISIBLE);
 
         }
+    }
+
+    public void clickOnFile(File file)
+    {
+        Intent i = new Intent(Intent.ACTION_VIEW);
+
+        //On récupére le type MIME du fichier que l'on affecte au nouvel intente
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        String ext2 = file.getName().substring(file.getName().indexOf(".") + 1).toLowerCase();
+        String type = mime.getMimeTypeFromExtension(ext2);
+        i.setDataAndType(Uri.fromFile(file), type);
+
+        try {
+            startActivity(i);
+            // Et s'il n'y a pas d'activité qui puisse gérer ce type de fichier
+        } catch (ActivityNotFoundException e) {
+
+            Toast.makeText(this, "Oups, vous n'avez pas d'application qui puisse lancer ce fichier", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        if (m_Model.hasParentDirectory())
+        {
+            m_Model.goToParentDirectory();
+
+            m_mapMindView.constructFromFile(m_Model.getCurrentFile());
+        }
         else
         {
             super.onBackPressed();
         }
-
-
     }
 
 }
@@ -236,43 +268,5 @@ public class MainActivity extends AppCompatActivity
 
 
 
-/*
-        public void clickOnFile(File file)
-        {
-            MimeTypeMap myMime = MimeTypeMap.getSingleton();
-            Intent newIntent = new Intent(Intent.ACTION_VIEW);
-            String fileExt = fileExt(file.getName());
-            if (fileExt != null)
-            {
-                String mimeType = myMime.getMimeTypeFromExtension(fileExt.substring(1));
-                newIntent.setDataAndType(Uri.fromFile(file), mimeType);
-                newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                try {
-                    getContext().startActivity(newIntent);
-                } catch (ActivityNotFoundException e) {
-                    Toast.makeText(getContext(), "No handler for this type of file.", Toast.LENGTH_LONG).show();
-                }
-            }
-            else{
-                Toast.makeText(getContext(), "No handler for this type of file.", Toast.LENGTH_LONG).show();
-            }
-        }
-        private String fileExt(String url) {
-            if (url.indexOf("?") > -1) {
-                url = url.substring(0, url.indexOf("?"));
-            }
-            if (url.lastIndexOf(".") == -1) {
-                return null;
-            } else {
-                String ext = url.substring(url.lastIndexOf(".") + 1);
-                if (ext.indexOf("%") > -1) {
-                    ext = ext.substring(0, ext.indexOf("%"));
-                }
-                if (ext.indexOf("/") > -1) {
-                    ext = ext.substring(0, ext.indexOf("/"));
-                }
-                return ext.toLowerCase();
 
-            }
-        }
-        */
+

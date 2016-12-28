@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/initItem"
-        android:title="Init" />
-    <item android:id="@+id/previousItem"
-        android:title="Previous" />
     <item android:id="@+id/centerItem"
         android:title="Center" />
 

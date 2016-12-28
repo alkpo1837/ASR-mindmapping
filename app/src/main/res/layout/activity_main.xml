@@ -13,12 +13,12 @@
         android:visibility="invisible"
         android:background="@drawable/edit_text"
         android:singleLine="true"
-        android:translationZ="50px"/>
+        />
 
     <com.polytech.asrproject.MapMindView
         android:id="@+id/mapMindView"
-        android:layout_width="10000px"
-        android:layout_height="10000px"
+        android:layout_width="5000px"
+        android:layout_height="5000px"
         android:visibility="visible"
         android:background="#c9e3ff" />
 

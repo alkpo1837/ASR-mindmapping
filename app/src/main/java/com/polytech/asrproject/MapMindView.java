@@ -272,6 +272,18 @@ public class MapMindView extends RelativeLayout implements View.OnTouchListener
         this.removeView(button);
     }
 
+    public void setAllButtonChildsToBack()
+    {
+        for (Button button : periphButtons.keySet())
+        {
+            int index = indexOfChild(button);
+            if (index > 0) {
+                detachViewFromParent(index);
+                attachViewToParent(button, 0, button.getLayoutParams());
+            }
+        }
+    }
+
 
     public void generateButtonsPositions()
     {

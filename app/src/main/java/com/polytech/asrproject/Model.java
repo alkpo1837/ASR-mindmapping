@@ -10,7 +10,7 @@ import java.io.File;
 
 public class Model
 {
-    private final String ROOT_PATH = Environment.getRootDirectory().toString();
+    private final String ROOT_PATH = Environment.getExternalStorageDirectory().toString();
 
     private File currentFile;
 

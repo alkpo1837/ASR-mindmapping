@@ -12,21 +12,21 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_be07dcb85f9497c4b31259db7365ff14f9b0d43e.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="61599532160ea15e77aae87764f13e5c3a6aaeb4">
+        sha1="a2fc4853ceeb726443264ac84963822dea2fc48d">
         <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_efe9266797a8ff56243a0e2928f41b8f2b67055b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.0.0_723aca607929215f34b2497ba010eb3fdbc8a632.jar" />
     </item>
     <item
         is-multidex="false"
@@ -39,6 +39,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_e39fba9c40a69c0412b995e62fe29b8d81a90fbf.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -48,66 +57,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\HP\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_861b1b6ff25618bac70c58f7cd5990bb741e4fcc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
-        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_eb9e97655515df7ff4cf87cbfd9af86910cbc156.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
-        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_e39fba9c40a69c0412b995e62fe29b8d81a90fbf.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_be07dcb85f9497c4b31259db7365ff14f9b0d43e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
-        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_e39fba9c40a69c0412b995e62fe29b8d81a90fbf.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
         <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_eb9e97655515df7ff4cf87cbfd9af86910cbc156.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_be07dcb85f9497c4b31259db7365ff14f9b0d43e.jar" />
     </item>
     <item
         is-multidex="false"
@@ -115,17 +70,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="d5c8c66bd5cac351f25135756c8d8025e12892b1">
+        sha1="999749b4221f30d3144e23124107ce110a8b5074">
         <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\instant-run_204436c9871f35e3e5318bc3441896bcc944db11.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="C:\Users\HP\Documents\GitHub\ProjetASRMindMapping\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.0.0_af3c86afa399f49560421c100a3720d053320d9b.jar" />
     </item>
 
 </items>

@@ -206,8 +206,7 @@ public class MainActivity extends AppCompatActivity
         m_actionsOnButtonView.setVisibility(View.INVISIBLE);
 
         // Delete the file here
-
-
+        m_clickedFile.delete();
     }
 
     public void hideKeyboard()
@@ -219,9 +218,19 @@ public class MainActivity extends AppCompatActivity
             imm.hideSoftInputFromWindow(m_editText.getWindowToken(),
                     InputMethodManager.RESULT_UNCHANGED_SHOWN);
 
+            String newFileName = m_editText.getText().toString();
             // Rename file or directory here
 
             m_editText.setVisibility(View.INVISIBLE);
+
+            Log.d("hdieKeBoard", m_clickedFile.getParentFile() + " et " +  newFileName);
+
+            File file = new File(m_clickedFile.getParentFile(), newFileName);
+
+
+            boolean success = m_clickedFile.renameTo(file);
+
+            Log.d("hideKeyboard", "C un sucess");
 
             m_actionsOnButtonView.setVisibility(View.INVISIBLE);
 
